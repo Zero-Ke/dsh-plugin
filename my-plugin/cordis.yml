@@ -1,0 +1,26 @@
+# 本地插件 overlay（patch 层）。
+#
+# 用法（在 deepseek-harness 仓库根目录）：
+#   pnpm dsh web --patch /Users/tanhuaze/code/dsh-test/my-plugin/cordis.yml
+#
+# 注意：
+# - 插件 `name` 必须是绝对路径——patch 只贡献配置，
+#   不会改变 loader 解析模块路径时使用的 profile 目录；
+# - 想覆盖任何一行（例如 webserver 端口）就按 id 加一个条目，例如：
+#     - id: webserver
+#       config:
+#         host: 127.0.0.1
+#         port: 3081
+- insert:
+    - id: hello
+      name: '/Users/tanhuaze/code/dsh-test/my-plugin/src/hello.ts'
+      # 取消注释即可传入配置（Schemastery 校验 + 默认值填充）：
+      # config:
+      #   greeting: 'Hi there'
+      #   loud: true
+    - id: greet-tool
+      name: '/Users/tanhuaze/code/dsh-test/my-plugin/src/greet.ts'
+      # 控制"你好"时的自我介绍返回值（Schemastery 校验 + 默认值填充）：
+      # config:
+      #   introText: '我是 DSH（DeepSeek Harness），你的编程搭档'
+      #   creator: '谭华泽'

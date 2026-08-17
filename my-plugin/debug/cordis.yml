@@ -1,0 +1,10 @@
+# 最小 Cordis 组合：只加载工具管线 + greet 插件，不启动 Web 应用。
+# 运行方式（在本目录下）：
+#   node --import tsx /Users/tanhuaze/code/deepseek-harness/vendor/cordis/bin.js
+#
+# 依赖链：invariants <- system-prompt <- tools <- greet.ts / driver.ts
+- name: '@deepseek-ai/dsh-invariants'
+- name: '@deepseek-ai/dsh-system-prompt'
+- name: '@deepseek-ai/dsh-tools'
+- name: '/Users/tanhuaze/code/dsh-test/my-plugin/src/greet.ts'
+- name: '/Users/tanhuaze/code/dsh-test/my-plugin/debug/driver.ts'

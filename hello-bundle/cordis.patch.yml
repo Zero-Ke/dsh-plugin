@@ -1,0 +1,5 @@
+# 组合包贡献的配置层：安装进 profile 后自动激活。
+# 插件行按包名引用（而不是绝对路径），Node 的模块解析会找到已安装的代码。
+- insert:
+    - id: hello
+      name: dsh-hello-plugin
